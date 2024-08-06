@@ -8,20 +8,20 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #f8f9fa; /* Light gray background color */
+            background-color: #f8f9fa;
         }
         .form-container {
-            background-color: #ffffff; /* White background for the form */
+            background-color: #ffffff;
             padding: 30px;
-            border-radius: 8px; /* Rounded corners */
-            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Light shadow */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
         .btn-custom {
-            background-color: #007bff; /* Bootstrap primary color */
+            background-color: #007bff;
             color: white;
         }
         .btn-custom:hover {
-            background-color: #0056b3; /* Darker shade for hover effect */
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -31,8 +31,7 @@
         <div class="col-md-6 col-lg-4">
             <div class="form-container mt-5">
                 <h1 class="text-center mb-4">Register</h1>
-                <form action="#" th:action="@{/register}" th:object="${user}" method="post"class="border p-4 rounded"
-                      style="background-color: #f0f8ff;">
+                <form action="#" th:action="@{/register}" th:object="${user}" method="post" class="border p-4 rounded" style="background-color: #f0f8ff;">
                     <div class="form-group">
                         <label for="username">Username:</label>
                         <input type="text" id="username" th:field="*{username}" class="form-control" />
@@ -41,9 +40,11 @@
                         <label for="password">Password:</label>
                         <input type="password" id="password" th:field="*{password}" class="form-control" />
                     </div>
-                    <button type="submit" class="btn btn-custom btn-block"
-                            style="background-color: #225270; border: none;">Register</button>
+                    <button type="submit" class="btn btn-custom btn-block" style="background-color: #225270; border: none;">Register</button>
                 </form>
+                <div class="text-center mt-3">
+                    <p>Already have an account? <a th:href="@{/login}">Login here</a>.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -55,4 +56,3 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
