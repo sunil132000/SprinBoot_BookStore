@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bookStore.entity.Book;
 import com.bookStore.entity.MyBookList;
@@ -12,6 +13,8 @@ import com.bookStore.service.BookService;
 import com.bookStore.service.MyBookListService;
 
 import java.util.*;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class BookController {
@@ -70,5 +73,11 @@ public class BookController {
     public String deleteBook(@PathVariable("id") int id) {
         service.deleteById(id);
         return "redirect:/available_books";
+    }
+    @GetMapping("/logout")
+    public String logout(HttpSession session, RedirectAttributes redirectAttributes) {
+        session.invalidate();
+        redirectAttributes.addFlashAttribute("message", "You have been logged out successfully.");
+        return "redirect:/login";
     }
 }
